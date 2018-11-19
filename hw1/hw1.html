@@ -1,152 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<style>
-  h1{
-    color: #1946ba;
-    font-family: "Open Sans";
-    position: fixed;
-    left: 30px;
-    top: 10px;
-
-  }
-  h2{
-    color: black;
-    font-family: "Open Sans";
-    position: fixed;
-    left: 30px;
-    top: 60px;
-
-  }
-  blockquote{
-    background: white;
-    font-style: "Open Sans";
-    border-left: 5px solid #F5F5F5;
-    padding: 0.5em 10px;
-    position: fixed;
-    left: 30px;
-    top: 100px;
-
-    /* width: 960px; */
-  }
-  button{
-    background-color: #ec0b43;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-family: "Open Sans";
-    position: fixed;
-    right: 740px;
-    top: 200px;
-  }
-  #abutton{
-    background-color: #ec0b43;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-family: "Open Sans";
-    position: fixed;
-    right: 300px;
-    top: 200px;
-  }
-  select{
-    background-color: #ec0b43;
-    color: white;
-    border: none;
-    padding: 10px 200px;
-    font-family: "Open Sans";
-    position: fixed;
-    right: 500px;
-    top: 400px;
-  }
-</style>
-
-<h1 id='h1_style'>First VIS101 Homework</h1>
-
+    <link rel="stylesheet" href="hw1_style.css">
+    <h1 id='h1_style'> First VIS101 Homework </h1>
 </head>
+
 <body>
-<h2 id='h2_style'>Quote Of the Day</h2>
-<blockquote id='myBlockquote'>
-All successful men and women are big dreamers.
-They imagine what their future could be, ideal in every respect,
-and then they work every day toward their distant vision, that goal
-or purpose.” – Brian Tracy
-</blockquote>
-<button type="button" name="quote_button" onclick="divMessage()">
-     Change Quote of the Day
- </button>
- <button type="button" id="abutton" name="author_button" onclick="authors()">
-      Change author
+  <h2 id='h2_style'> Quote Of the Day </h2>
+
+  <blockquote id='quotes'>
+      All successful men and women are big dreamers.
+      They imagine what their future could be, ideal in every respect,
+      and then they work every day toward their distant vision, that goal
+      or purpose. – Brian Tracy
+  </blockquote>
+
+  <button type="button" name="quote_button" onclick="change_quotes_of_day()">
+      Change Quote of the Day
   </button>
- <select id="mySelect"> </select>
+
+  <button type="button" id="authors_button" name="author_button" onclick="change_author()">
+      Change the author
+  </button>
+
+ <select id="authors_list">  </select>
 </body>
-<script>
-var getJSON = function(url, callback) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', url, true);
-  xhr.responseType = 'json';
-  xhr.onload = function() {
-    var status = xhr.status;
-    if (status === 200) {
-      callback(null, xhr.response);
-    } else {
-      callback(status, xhr.response);
-    }
-  };
-  xhr.send();
-};
 
+<script src="hw1_script.js"></script>
 
-var selection_list = document.getElementById("mySelect");
-var option = document.createElement("option");
-option.text = "Kevin Kruse";
-selection_list.add(option);
-var option1 = document.createElement("option");
-option1.text = "Earl Nightingale";
-selection_list.add(option1);
-
-var counter = 0;
-  function divMessage() {
-    var bq = document.getElementById ("myBlockquote");
-    var oldText = bq.innerText;
-    getJSON('https://raw.githubusercontent.com/mdn/learning-area/master/accessibility/aria/quotes.json',
-function(err, data) {
-  if (err !== null) {
-    alert('Something went wrong: ' + err);
-  } else {
-    counter = (counter+1)%data.length;
-    newText = data[counter].quote  + " - " + data[counter].author;
-    bq.innerText = newText;
-  }
-});
-}
-
-
-function get_quote(authorX){
-  var q = getJSON('https://raw.githubusercontent.com/mdn/learning-area/master/accessibility/aria/quotes.json',
-function(err, data, q) {
-if (err !== null) {
-  alert('Something went wrong: ' + err);
-} else {
-  for(var i = 0; i <  data.length; i++){
-    if (data[i].author == authorX){
-      return authorX;//data[i].quote  + " - " + data[i].author;
-    }
-  }
-}
-});
-if(q==""){
-  q = "NNNNN"
-}
-return q;
-}
-
-function authors() {
-  var bq = document.getElementById ("myBlockquote");
-  var oldText = bq.innerText;
-
-  var author = selection_list.value;
-  bq.innerText = get_quote(author);
-}
-</script>
 </html>
