@@ -36,8 +36,28 @@
     padding: 10px 20px;
     font-family: "Open Sans";
     position: fixed;
-    left: 30px;
+    right: 740px;
     top: 200px;
+  }
+  #abutton{
+    background-color: #ec0b43;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-family: "Open Sans";
+    position: fixed;
+    right: 300px;
+    top: 200px;
+  }
+  select{
+    background-color: #ec0b43;
+    color: white;
+    border: none;
+    padding: 10px 200px;
+    font-family: "Open Sans";
+    position: fixed;
+    right: 500px;
+    top: 400px;
   }
 </style>
 
@@ -55,9 +75,12 @@ or purpose.” – Brian Tracy
 <button type="button" name="quote_button" onclick="divMessage()">
      Change Quote of the Day
  </button>
+ <button type="button" id="abutton" name="author_button" onclick="authors()">
+      Change author
+  </button>
+ <select id="mySelect"> </select>
 </body>
 <script>
-
 var getJSON = function(url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
@@ -74,21 +97,56 @@ var getJSON = function(url, callback) {
 };
 
 
-  var counter = 0;
+var selection_list = document.getElementById("mySelect");
+var option = document.createElement("option");
+option.text = "Kevin Kruse";
+selection_list.add(option);
+var option1 = document.createElement("option");
+option1.text = "Earl Nightingale";
+selection_list.add(option1);
+
+var counter = 0;
   function divMessage() {
     var bq = document.getElementById ("myBlockquote");
     var oldText = bq.innerText;
-    newText = (counter+1).toString();
-    counter++;
-    bq.innerText = newText;
-    getJSON('https://raw.githubusercontent.com/tatiasha/tatiasha.github.io/master/hw1/quotes.json',
+    getJSON('https://raw.githubusercontent.com/mdn/learning-area/master/accessibility/aria/quotes.json',
 function(err, data) {
   if (err !== null) {
     alert('Something went wrong: ' + err);
   } else {
-    alert(data.quote.count);
+    counter = (counter+1)%data.length;
+    newText = data[counter].quote  + " - " + data[counter].author;
+    bq.innerText = newText;
   }
 });
+}
+
+
+function get_quote(authorX){
+  var q = getJSON('https://raw.githubusercontent.com/mdn/learning-area/master/accessibility/aria/quotes.json',
+function(err, data, q) {
+if (err !== null) {
+  alert('Something went wrong: ' + err);
+} else {
+  for(var i = 0; i <  data.length; i++){
+    if (data[i].author == authorX){
+      return authorX;//data[i].quote  + " - " + data[i].author;
+    }
+  }
+}
+});
+if(q==""){
+  q = "NNNNN"
+}
+return q;
+}
+
+function authors() {
+  var bq = document.getElementById ("myBlockquote");
+  var oldText = bq.innerText;
+
+  var author = selection_list.value;
+  bq.innerText = get_quote(author);
 }
 </script>
 </html>
