@@ -81,12 +81,12 @@ var getJSON = function(url, callback) {
     newText = (counter+1).toString();
     counter++;
     bq.innerText = newText;
-    getJSON('https://raw.githubusercontent.com/mdn/learning-area/master/accessibility/aria/quotes.json',
+    getJSON('https://raw.githubusercontent.com/tatiasha/tatiasha.github.io/master/hw1/quotes.json',
 function(err, data) {
   if (err !== null) {
     alert('Something went wrong: ' + err);
   } else {
-    alert('Your query count: ', data[0].quote.count);
+    alert(data.quote.count);
   }
 });
 }
