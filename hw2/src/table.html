@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+</head>
+  <body>
+    <h1>Fucking JS</h1>
+
+    <div>
+      <label class="years">Time update: </label>
+      <label class="years">1995</label>
+      <input type="range" id="start" name="volume"
+             min="1995" max="2012" step="1">
+             <label class="years">2012</label>
+    </div>
+
+    <div class="Filter"> Filter by:
+      <input type="checkbox" name="Filter" value="Americas"/>Americas
+      <input type="checkbox" name="" value="Africa"/>Africa
+      <input type="checkbox" name="" value="Asia"/>Asia
+      <input type="checkbox" name="" value="Europe"/>Europe
+      <input type="checkbox" name="" value="Oceania"/>Oceania
+    </div>
+    <div class="Aggregation"> Aggregation:
+      <input type="radio" name="aggregation_radio" value="" checked>None
+      <input type="radio" name="aggregation_radio" value="">by Continent
+    </div>
+
+
+    <script src=src.js></script>
+  </body>
+</html>
