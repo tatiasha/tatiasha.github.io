@@ -16,12 +16,25 @@
              <label class="years">2012</label>
     </div>
 
-    <div class="Filter"> Filter by:
-      <input type="checkbox" name="Filter" value="Americas"/>Americas
-      <input type="checkbox" name="" value="Africa"/>Africa
-      <input type="checkbox" name="" value="Asia"/>Asia
-      <input type="checkbox" name="" value="Europe"/>Europe
-      <input type="checkbox" name="" value="Oceania"/>Oceania
+    <!-- <div id="checkbox"> Filter by:
+      <input type="checkbox" name="Americas" value="Americas" onchange="interactiveFilter()"/>Americas
+      <input type="checkbox" name="Africa" value="Africa" onchange="interactiveFilter()"/>Africa
+      <input type="checkbox" name="Asia" value="Asia" onchange="interactiveFilter()"/>Asia
+      <input type="checkbox" name="Europe" value="Europe" onchange="interactiveFilter()"/>Europe
+      <input type="checkbox" name="Oceania" value="Oceania" onchange="interactiveFilter()"/>Oceania
+    </div> -->
+    <div id="checkbox">
+      <span>Filter by:</span>
+      <input type='checkbox', name='america' value="Americas" onchange="filterRows()">
+      <span>Americas</span>
+      <input type='checkbox', name='africa' value="Africa" onchange="filterRows()">
+      <span>Africa</span>
+      <input type='checkbox', name='asia' value="Asia" onchange="filterRows()">
+      <span>Asia</span>
+      <input type='checkbox', name='europe' value="Europe" onchange="filterRows()">
+      <span>Europe</span>
+      <input type='checkbox', name='oceania' value="Oceania" onchange="filterRows()">
+      <span>Oceania<span>
     </div>
     <div class="Aggregation"> Aggregation:
       <input type="radio" name="aggregation_radio" value="" checked>None
@@ -29,6 +42,6 @@
     </div>
 
 
-    <script src=src.js></script>
+    <script type="text/javascript"  src=src.js></script>
   </body>
 </html>

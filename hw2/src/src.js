@@ -1,5 +1,5 @@
 var col_to_show = ['name', 'continent', 'gdp', 'life_expectancy', 'population', 'year'];
-var sorting_flag = false;
+var sorting_flag = -1;
 
       d3.json("https://raw.githubusercontent.com/tatiasha/tatiasha.github.io/master/hw2/data/countries_2012.json", function(error, data){
 
@@ -17,21 +17,35 @@ var sorting_flag = false;
           .append("th")
           .text(function(d) { return d; })
           .on("click", function(header, i) {
-            tbody.selectAll("tr").sort(function(a, b) {
-              if (sorting_flag == false){
-								sorting_flag = true;
+            tbody.selectAll("tr")
+            .sort(function(a, b) {
+              if (sorting_flag == -1){
                 return d3.ascending(a[header], b[header]);
               }else{
-								sorting_flag = false;
                 return d3.descending(a[header], b[header]);
               }
-            });
+            })
+          .style("background-color", function(d, jk) { 
+            if (jk % 2){
+                return '#A9A9A9';
+            } else{
+                return '#E8E8E8';
+            }});
+            sorting_flag = -1*sorting_flag;
           });
+          
 
         var rows = tbody.selectAll("tr.row")
           .data(data)
           .enter()
-          .append("tr").attr("class", "row");
+          .append("tr").attr("class", "row")
+          .style("background-color", function(d, i) { 
+            if (i % 2){
+                return '#A9A9A9';
+            } else{
+                return '#E8E8E8';
+            }
+        });
 
           var cells = rows.selectAll("td")
           	.data(function(row){
