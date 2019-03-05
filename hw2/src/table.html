@@ -1,47 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="utf-8">
-<head>
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="table.css">
+  </head>
   <body>
-    <h1>JS. Homework 2</h1>
-
-    <div>
-      <label class="years">Time update: </label>
-      <label class="years">1995</label>
-      <input type="range" id="start" name="volume"
-             min="1995" max="2012" step="1">
-             <label class="years">2012</label>
-    </div>
-
-    <!-- <div id="checkbox"> Filter by:
-      <input type="checkbox" name="Americas" value="Americas" onchange="interactiveFilter()"/>Americas
-      <input type="checkbox" name="Africa" value="Africa" onchange="interactiveFilter()"/>Africa
-      <input type="checkbox" name="Asia" value="Asia" onchange="interactiveFilter()"/>Asia
-      <input type="checkbox" name="Europe" value="Europe" onchange="interactiveFilter()"/>Europe
-      <input type="checkbox" name="Oceania" value="Oceania" onchange="interactiveFilter()"/>Oceania
-    </div> -->
-    <div id="checkbox">
-      <span>Filter by:</span>
-      <input type='checkbox', name='america' value="Americas" onchange="filterRows()">
-      <span>Americas</span>
-      <input type='checkbox', name='africa' value="Africa" onchange="filterRows()">
-      <span>Africa</span>
-      <input type='checkbox', name='asia' value="Asia" onchange="filterRows()">
-      <span>Asia</span>
-      <input type='checkbox', name='europe' value="Europe" onchange="filterRows()">
-      <span>Europe</span>
-      <input type='checkbox', name='oceania' value="Oceania" onchange="filterRows()">
-      <span>Oceania<span>
-    </div>
-    <div class="Aggregation"> Aggregation:
-      <input type="radio" name="aggregation_radio" value="" checked>None
-      <input type="radio" name="aggregation_radio" value="">by Continent
-    </div>
-
-
-    <script type="text/javascript"  src=src.js></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
