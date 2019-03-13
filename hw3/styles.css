@@ -1,13 +1,4 @@
-.graticule{
-    fill: none;
-    stroke: #000;
-    stroke-opacity: .1;
-    stroke-dasharray: 2, 1;
-}
 
-.bar:hover {
-    fill: #00CCFF !important;
-}
 .countries {
     stroke: #f7f7f7;
     fill: #d9d9d9;
@@ -152,4 +143,14 @@ header {
 #yAxis text {
     font-size: 14px;
 
+}
+.graticule{
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .1;
+    stroke-dasharray: 2, 1;
+}
+
+.bar:hover {
+    fill: #00CCFF !important;
 }

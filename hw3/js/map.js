@@ -4,7 +4,7 @@ class Map {
      * Creates a Map Object
      */
     constructor() {
-        window.projection = d3.geoConicConformal().scale(150).translate([400, 350]);
+        this.projection = d3.geoConicConformal().scale(150).translate([400, 350]);
 
     }
 

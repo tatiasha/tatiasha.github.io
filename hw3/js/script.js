@@ -1,6 +1,6 @@
 
 // Load CSV file
-d3.csv("https://alexandbeer.github.io/fifa-world-cup.csv", function (error, allData) {
+d3.csv("https://raw.githubusercontent.com/tatiasha/tatiasha.github.io/master/hw3/data/fifa-world-cup.csv", function (error, allData) {
     allData.forEach(function (d) {
         // Convert numeric values to 'numbers'
         d.year = +d.YEAR;
@@ -23,7 +23,7 @@ d3.csv("https://alexandbeer.github.io/fifa-world-cup.csv", function (error, allD
     window.allData = allData;
     /* DATA LOADING */
     //Load in json data to make map
-    d3.json("https://alexandbeer.github.io/world.json", function (error, world) {
+    d3.json("https://raw.githubusercontent.com/tatiasha/tatiasha.github.io/master/hw3/data/world.json", function (error, world) {
         if (error) throw error;
         worldMap.drawMap(world);
     });
