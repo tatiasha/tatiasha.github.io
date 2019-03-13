@@ -7,3 +7,6 @@ e-mail: kutuzova.tanya@mail.ru
 
 
 [HW2 - Table/Barchart](https://tatiasha.github.io/hw2/src/)
+
+
+[HW3p1 - FIFA](https://tatiasha.github.io/hw3/hw3)
